@@ -4,18 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://doia3cj0jhur7" path="res://Textures/Player/Player_sprite.png" id="2_vy4s8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5fut"]
-radius = 33.0
-height = 162.0
+radius = 7.0
+height = 26.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_wq3q8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("2_vy4s8")
+hframes = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, 24)
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_q5fut")

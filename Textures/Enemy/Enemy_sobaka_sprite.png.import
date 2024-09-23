@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xd12krj1tfgl"
-path="res://.godot/imported/Enemy_sprite.png-44267d7f21f5a49b0856bd5ace403526.ctex"
+uid="uid://dng7cwc38mj0y"
+path="res://.godot/imported/Enemy_sobaka_sprite.png-7620d1b299be68cad17851e10837cf82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Enemy/Enemy_sprite.png"
-dest_files=["res://.godot/imported/Enemy_sprite.png-44267d7f21f5a49b0856bd5ace403526.ctex"]
+source_file="res://Textures/Enemy/Enemy_sobaka_sprite.png"
+dest_files=["res://.godot/imported/Enemy_sobaka_sprite.png-7620d1b299be68cad17851e10837cf82.ctex"]
 
 [params]
 

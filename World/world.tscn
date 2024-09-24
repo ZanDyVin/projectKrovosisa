@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://wnfa0gg54a28" path="res://Textures/Dirt.png" id="1_ojmqa"]
 [ext_resource type="PackedScene" uid="uid://cg43t642473it" path="res://Player/player.tscn" id="2_4hexe"]
-[ext_resource type="PackedScene" uid="uid://vwfvbpvcpooh" path="res://Enemy/enemy.tscn" id="3_pqfvw"]
+[ext_resource type="PackedScene" uid="uid://bos25b0451spx" path="res://Utility/enemy_spawner.tscn" id="3_we0tx"]
 
 [node name="World" type="Node2D"]
 
@@ -15,5 +15,4 @@ region_rect = Rect2(0, 0, 4000, 4000)
 
 [node name="Player" parent="." instance=ExtResource("2_4hexe")]
 
-[node name="Enemy_sobaka" parent="." instance=ExtResource("3_pqfvw")]
-position = Vector2(208, -108)
+[node name="EnemySpawner" parent="." instance=ExtResource("3_we0tx")]

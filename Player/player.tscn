@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg43t642473it"]
+[gd_scene load_steps=12 format=3 uid="uid://cg43t642473it"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_wq3q8"]
 [ext_resource type="Texture2D" uid="uid://doia3cj0jhur7" path="res://Textures/Player/Player_sprite.png" id="2_vy4s8"]
 [ext_resource type="PackedScene" uid="uid://donjqr6bpxwmd" path="res://Utility/hurt_box.tscn" id="3_kiiq5"]
+[ext_resource type="Texture2D" uid="uid://pyaq8gbdjq6g" path="res://Textures/GUI/exp_background.png" id="4_ym3j4"]
+[ext_resource type="Texture2D" uid="uid://bpfmuaq3rx45c" path="res://Textures/GUI/exp_progress.png" id="5_tfsbx"]
+[ext_resource type="AudioStream" uid="uid://cw7eosaqicg53" path="res://Audio/SoundEffect/levelup.ogg" id="6_7x8nl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5fut"]
 radius = 7.0
@@ -14,6 +17,11 @@ size = Vector2(24, 30)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ma74"]
 radius = 148.125
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yx2w7"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smmxf"]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_wq3q8")
@@ -24,7 +32,6 @@ texture = ExtResource("2_vy4s8")
 hframes = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -54,7 +61,16 @@ wait_time = 1.5
 unique_name_in_owner = true
 wait_time = 0.075
 
+[node name="SemkiTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="SemkiAttackTimer" type="Timer" parent="Attack/SemkiTimer"]
+unique_name_in_owner = true
+wait_time = 0.2
+
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 monitorable = false
@@ -62,10 +78,86 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionArea"]
 shape = SubResource("CircleShape2D_2ma74")
 
+[node name="GrabArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+shape = SubResource("CircleShape2D_yx2w7")
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+shape = SubResource("CircleShape2D_smmxf")
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="GUILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = ExtResource("4_ym3j4")
+texture_progress = ExtResource("5_tfsbx")
+
+[node name="lbl_level" type="Label" parent="GUILayer/GUI/ExperienceBar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 540.0
+offset_right = 640.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 16
+text = "Level: 1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LevelUp" type="Panel" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = 800.0
+offset_top = 50.0
+offset_right = 1000.0
+offset_bottom = 300.0
+
+[node name="lbl_LevelUp" type="Label" parent="GUILayer/GUI/LevelUp"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+text = "Level Up !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeOptions" type="VBoxContainer" parent="GUILayer/GUI/LevelUp"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 190.0
+offset_bottom = 100.0
+
+[node name="snd_levelup" type="AudioStreamPlayer2D" parent="GUILayer/GUI/LevelUp"]
+unique_name_in_owner = true
+stream = ExtResource("6_7x8nl")
+volume_db = -20.0
+
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/TridentTimer" to="." method="_on_trident_timer_timeout"]
 [connection signal="timeout" from="Attack/TridentTimer/TridentAttackTimer" to="." method="_on_trident_attack_timer_timeout"]
+[connection signal="timeout" from="Attack/SemkiTimer" to="." method="_on_semki_timer_timeout"]
+[connection signal="timeout" from="Attack/SemkiTimer/SemkiAttackTimer" to="." method="_on_semki_attack_timer_timeout"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
 [connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
+[connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
+[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
 
 [editable path="HurtBox"]

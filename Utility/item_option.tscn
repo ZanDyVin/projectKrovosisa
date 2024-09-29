@@ -27,6 +27,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_we4ko")
+expand_mode = 2
 
 [node name="lbl_name" type="Label" parent="."]
 layout_mode = 0
@@ -34,11 +35,13 @@ offset_left = 39.0
 offset_top = 2.0
 offset_right = 79.0
 offset_bottom = 25.0
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 8
 text = "Назва"
 horizontal_alignment = 1
+autowrap_mode = 1
 
 [node name="lbl_description" type="Label" parent="."]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 27.0
 offset_right = 166.0
@@ -48,6 +51,7 @@ text = "Опис предмету"
 autowrap_mode = 3
 
 [node name="lbl_level" type="Label" parent="."]
+layout_mode = 0
 offset_left = 130.0
 offset_top = 3.0
 offset_right = 180.0

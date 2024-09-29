@@ -20,9 +20,34 @@ func _ready():
 		1:
 			hp = 1
 			speed = 100
-			damage = 5
+			damage = 5 * Global.dmg_boost
 			knockback_amount = 100
 			attack_size = 1.01
+		2:
+			hp = 1
+			speed = 100
+			damage = 5 * Global.dmg_boost
+			knockback_amount = 100
+			attack_size = 1.01
+		3:
+			hp = 1
+			speed = 100
+			damage = 7.5 * Global.dmg_boost
+			knockback_amount = 100
+			attack_size = 1.01
+		4:
+			hp = 1
+			speed = 100
+			damage = 15 * Global.dmg_boost
+			knockback_amount = 100
+			attack_size = 1.01
+		5:
+			hp = 1
+			speed = 100
+			damage = 37.5 * Global.dmg_boost
+			knockback_amount = 100
+			attack_size = 1.01
+	print(damage)
 
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1, 1)*attack_size, 1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)

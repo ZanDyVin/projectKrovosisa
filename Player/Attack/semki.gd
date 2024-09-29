@@ -22,7 +22,31 @@ func _ready():
 		1:
 			hp = 9999
 			speed = 100.0
-			damage = 5
+			damage = 5 * Global.dmg_boost
+			knockback_amount = 100
+			attack_size = 1.0
+		2:
+			hp = 9999
+			speed = 100.0
+			damage = 5 * Global.dmg_boost
+			knockback_amount = 100
+			attack_size = 1.0
+		3:
+			hp = 9999
+			speed = 100.0
+			damage = 7.5 * Global.dmg_boost
+			knockback_amount = 100
+			attack_size = 1.0
+		4:
+			hp = 9999
+			speed = 100.0
+			damage = 15 * Global.dmg_boost
+			knockback_amount = 100
+			attack_size = 1.0
+		5:
+			hp = 9999
+			speed = 100.0
+			damage = 37.5 * Global.dmg_boost
 			knockback_amount = 100
 			attack_size = 1.0
 	
@@ -67,5 +91,5 @@ func _physics_process(delta):
 	position += angle*speed*delta
 
 func _on_timer_timeout():
-	emit_signal("remove_from_array")
+	emit_signal("remove_from_array", self)
 	queue_free()

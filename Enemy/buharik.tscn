@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://1jxs1ctjguwf"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_sr0cq"]
-[ext_resource type="Texture2D" uid="uid://dng7cwc38mj0y" path="res://Textures/Enemy/Enemy_sobaka_sprite.png" id="2_bcyxp"]
+[ext_resource type="Texture2D" uid="uid://dhn74ahx378m8" path="res://Textures/Enemy/Enemy_drunker_sprite.png" id="2_0utyn"]
 [ext_resource type="PackedScene" uid="uid://donjqr6bpxwmd" path="res://Utility/hurt_box.tscn" id="3_ypjs7"]
 [ext_resource type="PackedScene" uid="uid://cyublufr7uql2" path="res://Utility/hit_box.tscn" id="4_i3p63"]
 [ext_resource type="AudioStream" uid="uid://bi0yi7dyaoqcw" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_5iccb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn3h7"]
-size = Vector2(21, 17)
+size = Vector2(29, 47)
 
 [sub_resource type="Animation" id="Animation_jn5pk"]
 length = 0.001
@@ -48,10 +48,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rv668"]
-size = Vector2(30, 23)
+size = Vector2(29, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxssx"]
-size = Vector2(28, 21)
+size = Vector2(29, 47)
 
 [node name="Enemy_buharik" type="CharacterBody2D"]
 collision_layer = 5
@@ -64,11 +64,11 @@ enemy_damage = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_bcyxp")
+texture = ExtResource("2_0utyn")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_cn3h7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -81,7 +81,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0, -1.5)
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_rv668")
 
 [node name="HitBox" parent="." instance=ExtResource("4_i3p63")]
@@ -89,7 +89,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(0, -1.5)
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_xxssx")
 
 [node name="snd_hit" type="AudioStreamPlayer2D" parent="."]

@@ -37,7 +37,6 @@ texture = ExtResource("2_vy4s8")
 hframes = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_bottom = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

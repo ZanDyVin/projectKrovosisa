@@ -5,7 +5,7 @@ const ICON_PATH = "res://Textures/Items/Upgrades/"
 const WEAPON_PATH = "res://Textures/Items/Weapons/"
 const UPGRADES = {
 	"trident1": {
-		"icon": WEAPON_PATH + "trident.png",
+		"icon": WEAPON_PATH + "Weapon_trident.png",
 		"displayname": "Тризуб",
 		"details": "Тризуб який летить в рандомного ворога",
 		"level": "Level: 1",
@@ -13,7 +13,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"trident2": {
-		"icon": WEAPON_PATH + "trident.png",
+		"icon": WEAPON_PATH + "Weapon_trident.png",
 		"displayname": "Тризуб",
 		"details": "Летить 3 тризуба",
 		"level": "Level: 2",
@@ -21,7 +21,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"trident3": {
-		"icon": WEAPON_PATH + "trident.png",
+		"icon": WEAPON_PATH + "Weapon_trident.png",
 		"displayname": "Тризуб",
 		"details": "Летить 4 тризуба і атака +50%",
 		"level": "Level: 3",
@@ -29,7 +29,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"trident4": {
-		"icon": WEAPON_PATH + "trident.png",
+		"icon": WEAPON_PATH + "Weapon_trident.png",
 		"displayname": "Тризуб",
 		"details": "Летить 6 тризубів і атака +100%",
 		"level": "Level: 4",
@@ -37,7 +37,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"trident5": {
-		"icon": WEAPON_PATH + "trident.png",
+		"icon": WEAPON_PATH + "Weapon_trident.png",
 		"displayname": "Тризуб",
 		"details": "Летить 8 тризубів і атака +150%",
 		"level": "Level: 5",
@@ -45,7 +45,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"semki1": {
-		"icon": WEAPON_PATH + "seed.png",
+		"icon": WEAPON_PATH + "Weapon_semka.png",
 		"displayname": "Сімічка Сан Санич",
 		"details": "2 Сімічки які летять в сторону зору персонажа",
 		"level": "Level: 1",
@@ -53,7 +53,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"semki2": {
-		"icon": WEAPON_PATH + "seed.png",
+		"icon": WEAPON_PATH + "Weapon_semka.png",
 		"displayname": "Сімічка Сан Санич",
 		"details": "Летять 4 сімічки",
 		"level": "Level: 2",
@@ -61,7 +61,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"semki3": {
-		"icon": WEAPON_PATH + "seed.png",
+		"icon": WEAPON_PATH + "Weapon_semka.png",
 		"displayname": "Сімічка Сан Санич",
 		"details": "Летять 5 сімічок і атака +50%",
 		"level": "Level: 3",
@@ -69,7 +69,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"semki4": {
-		"icon": WEAPON_PATH + "seed.png",
+		"icon": WEAPON_PATH + "Weapon_semka.png",
 		"displayname": "Сімічка Сан Санич",
 		"details": "Летять 6 сімічок і атака +100%",
 		"level": "Level: 4",
@@ -77,7 +77,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"semki5": {
-		"icon": WEAPON_PATH + "seed.png",
+		"icon": WEAPON_PATH + "Weapon_semka.png",
 		"displayname": "Сімічка Сан Санич",
 		"details": "Летять 8 сімічок і атака +150%",
 		"level": "Level: 5",

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmq585l4xhwlh"
-path="res://.godot/imported/seed.png-f875da5a78d7f7b5470f5920ba233dbf.ctex"
+uid="uid://dhn74ahx378m8"
+path="res://.godot/imported/Enemy_drunker_sprite.png-3149fb606cad5b8db18a2693f507413c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/seed.png"
-dest_files=["res://.godot/imported/seed.png-f875da5a78d7f7b5470f5920ba233dbf.ctex"]
+source_file="res://Textures/Enemy/Enemy_drunker_sprite.png"
+dest_files=["res://.godot/imported/Enemy_drunker_sprite.png-3149fb606cad5b8db18a2693f507413c.ctex"]
 
 [params]
 

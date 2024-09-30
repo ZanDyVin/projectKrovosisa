@@ -14,7 +14,8 @@ var collected_experience = 0
 #Attacks
 var attacks_preload = {
 "trident" = preload("res://Player/Attack/slava_ukraine.tscn"),
-"semki" = preload("res://Player/Attack/semki.tscn")}
+"semki" = preload("res://Player/Attack/semki.tscn"),
+"socks" = preload("res://Player/Attack/socks.tscn")}
 
 #AttackNodes
 @onready var tridentTimer = get_node("%TridentTimer")
@@ -42,6 +43,10 @@ var semki_baseammo = 0
 var semki_attackspeed = 1.5
 var semki_level = 0
 
+#Socks
+var socks_level = 0
+var socks_attack = null
+
 
 #Enemy Related
 var enemy_close = [] 
@@ -62,8 +67,16 @@ var enemy_close = []
 @onready var collectedUpgrades = get_node("%CollectedUpgrades")
 @onready var itemContainer = preload("res://Player/GUI/item_container.tscn")
 
+@onready var deathPanel = get_node("%DeathPanel")
+@onready var lblResult = get_node("%lbl_Result")
+@onready var sndVictory = get_node("%snd_victory")
+@onready var sndLose = get_node("%snd_lose")
+
+#Signal
+signal playerdeath
+
 func _ready():
-	upgrade_player("trident1")
+	upgrade_player("socks1")
 	attack()
 	set_expBar(experience, calculate_experiencecap())
 	_on_hurt_box_hurt(0,0,0)
@@ -80,6 +93,12 @@ func attack():
 		semkiTimer.wait_time = semki_attackspeed * (1 - spell_cooldown)
 		if semkiTimer.is_stopped():
 			semkiTimer.start()
+	if socks_level > 0:
+		if socks_attack != null:
+			socks_attack.queue_free()
+		var socks_attack = attacks_preload ["socks"].instantiate()
+		socks_attack.level = socks_level
+		add_child(socks_attack)
 
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -108,6 +127,8 @@ func _on_hurt_box_hurt(damage, _angle, _knockback):
 	print(hp)
 	healthBar.max_value = maxhp
 	healthBar.value = hp
+	if hp <= 0:
+		death()
 
 
 func _on_trident_timer_timeout():
@@ -152,7 +173,20 @@ func get_random_target():
 	else:
 		return Vector2.UP
 
-
+func get_nearest_target():
+	var nearest_distance = INF
+	var nearest_enemy = null
+	
+	if enemy_close.size() > 0:
+		for enemy in enemy_close:
+			var distance = position.distance_to(enemy.global_position)
+			if distance < nearest_distance:
+				nearest_distance = distance
+				nearest_enemy = enemy.global_position
+			return nearest_enemy
+	else:
+		return Vector2.UP
+		
 func _on_enemy_detection_area_body_entered(body):
 	if not enemy_close.has(body):
 		enemy_close.append(body)
@@ -252,18 +286,31 @@ func upgrade_player(upgrade):
 		"semki5":
 			semki_level = 5
 			semki_baseammo += 2
+		"socks1":
+			socks_level = 1
+		"socks2":
+			socks_level = 2
+		"socks3":
+			socks_level = 3
+		"socks4":
+			socks_level = 4
+		"socks5":
+			socks_level = 5
 		"tyagi1","tyagi2","tyagi3":
 			movement_speed = movement_speed + movement_speed*0.25
 		"arsenal1","arsenal2","arsenal3":
-			spell_cooldown += 0.05
+			spell_cooldown += 0.15
 		"sik1","sik2","sik3":
-			hp = hp + hp*0.25
+			maxhp = maxhp + maxhp*0.25
 		"salo1":
 			Global.dmg_boost = 1.1
 		"salo2":
 			Global.dmg_boost = 1.2
 		"salo3":
 			Global.dmg_boost = 1.3
+		"borsch":
+			hp += 40
+			hp = clamp(hp, 0, maxhp)
 	adjust_gui_collection(upgrade)
 	attack()
 	var option_children = upgradeOptions.get_children()
@@ -326,3 +373,22 @@ func adjust_gui_collection(upgrade):
 					collectedweapons.add_child(new_item)
 				"upgrade":
 					collectedUpgrades.add_child(new_item)
+
+func death():
+	deathPanel.visible = true
+	emit_signal("playerdeath")
+	get_tree().paused = true
+	var tween = deathPanel.create_tween()
+	tween.tween_property(deathPanel, "position", Vector2(220, 50), 3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
+	if time >= 1800:
+		lblResult.text = "Ти переміг!"
+		sndVictory.play()
+	else:
+		lblResult.text = "Ти програв."
+		sndLose.play()
+
+
+func _on_btn_menu_click_end():
+	get_tree().paused = false
+	var _level = get_tree().change_scene_to_file("res://TitleScreen/menu.tscn")

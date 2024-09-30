@@ -84,6 +84,46 @@ const UPGRADES = {
 		"prerequisite": ["semki4"],
 		"type": "weapon"
 	},
+	"socks1": {
+		"icon": WEAPON_PATH + "socks.png",
+		"displayname": "Смірдючі щкірпітки",
+		"details": "Б'є ворогів по радіусу",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"
+	},
+	"socks2": {
+		"icon": WEAPON_PATH + "socks.png",
+		"displayname": "Смірдючі щкірпітки",
+		"details": "Збільшується радіус і атака +10",
+		"level": "Level: 2",
+		"prerequisite": ["socks1"],
+		"type": "weapon"
+	},
+	"socks3": {
+		"icon": WEAPON_PATH + "socks.png",
+		"displayname": "Смірдючі щкірпітки",
+		"details": "Збільшується радіус і атака +20",
+		"level": "Level: 3",
+		"prerequisite": ["socks2"],
+		"type": "weapon"
+	},
+	"socks4": {
+		"icon": WEAPON_PATH + "socks.png",
+		"displayname": "Смірдючі щкірпітки",
+		"details": "Збільшується радіус і атака +25",
+		"level": "Level: 4",
+		"prerequisite": ["socks3"],
+		"type": "weapon"
+	},
+	"socks5": {
+		"icon": WEAPON_PATH + "socks.png",
+		"displayname": "Смірдючі щкірпітки",
+		"details": "Збільшується радіус і атака +30",
+		"level": "Level: 5",
+		"prerequisite": ["socks4"],
+		"type": "weapon"
+	},
 	"tyagi1": {
 		"icon": ICON_PATH + "tyagi.png",
 		"displayname": "Бархатні тяги",

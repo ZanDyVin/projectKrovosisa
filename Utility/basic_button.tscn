@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://q3p1ejrk8pqq"]
+
+[ext_resource type="Script" path="res://Utility/basic_button.gd" id="1_081ag"]
+[ext_resource type="AudioStream" uid="uid://c5igkbido5vuo" path="res://Audio/GUI/hover.wav" id="1_opot3"]
+[ext_resource type="AudioStream" uid="uid://di4b24e7y8awf" path="res://Audio/GUI/click.wav" id="2_uhoqi"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(80, 30)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 20
+text = "Example"
+script = ExtResource("1_081ag")
+
+[node name="snd_hover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_opot3")
+volume_db = -10.0
+
+[node name="snd_click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_uhoqi")
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="finished" from="snd_click" to="." method="_on_snd_click_finished"]

@@ -14,7 +14,7 @@ signal selected_upgrade(upgrade)
 func _ready():
 	connect("selected_upgrade", Callable(player, "upgrade_player"))
 	if item == null:
-		item = "sik"
+		item = "borsch"
 	lblName.text = UpgradeDb.UPGRADES[item]["displayname"]
 	lblDescription.text = UpgradeDb.UPGRADES[item]["details"]
 	lblLevel.text = UpgradeDb.UPGRADES[item]["level"]

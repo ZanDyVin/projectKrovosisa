@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgv7ghxir8cvp"
-path="res://.godot/imported/tyagi.png-5b9dc68a9d488833afafbc7f1472858b.ctex"
+uid="uid://bixgsl8vrxm1r"
+path="res://.godot/imported/Item_Semki.png-983e525e91fcc5f5137b42222ac3a278.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Upgrades/tyagi.png"
-dest_files=["res://.godot/imported/tyagi.png-5b9dc68a9d488833afafbc7f1472858b.ctex"]
+source_file="res://Textures/Items/Upgrades/Item_Semki.png"
+dest_files=["res://.godot/imported/Item_Semki.png-983e525e91fcc5f5137b42222ac3a278.ctex"]
 
 [params]
 

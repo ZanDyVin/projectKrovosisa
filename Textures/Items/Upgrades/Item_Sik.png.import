@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds6kxjkslidjs"
-path="res://.godot/imported/splash_sprite.png-815c61e9145178aca989a6e23ae6e4e1.ctex"
+uid="uid://gse3khs5kn2b"
+path="res://.godot/imported/Item_Sik.png-72767e7f1ec754fce31aed5e192217e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/splash_sprite.png"
-dest_files=["res://.godot/imported/splash_sprite.png-815c61e9145178aca989a6e23ae6e4e1.ctex"]
+source_file="res://Textures/Items/Upgrades/Item_Sik.png"
+dest_files=["res://.godot/imported/Item_Sik.png-72767e7f1ec754fce31aed5e192217e8.ctex"]
 
 [params]
 

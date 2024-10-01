@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bykf71t4k67bx"
-path="res://.godot/imported/bat.png-764574870c0b0d5871b16958dc4bdf89.ctex"
+uid="uid://bctid0qc1dnu8"
+path="res://.godot/imported/Item_Arsenal.png-fc799a3392dfd3e69cb826d4b1c5920e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/bat.png"
-dest_files=["res://.godot/imported/bat.png-764574870c0b0d5871b16958dc4bdf89.ctex"]
+source_file="res://Textures/Items/Upgrades/Item_Arsenal.png"
+dest_files=["res://.godot/imported/Item_Arsenal.png-fc799a3392dfd3e69cb826d4b1c5920e.ctex"]
 
 [params]
 

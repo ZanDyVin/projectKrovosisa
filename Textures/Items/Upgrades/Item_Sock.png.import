@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnbatnwj5470i"
-path="res://.godot/imported/trident.png-76c0c1d87598fe190c0a17d7b6bc0e1b.ctex"
+uid="uid://di41le4c2f2hh"
+path="res://.godot/imported/Item_Sock.png-0c06111bf6bfb397ef0fc1c9ea2c80f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/trident.png"
-dest_files=["res://.godot/imported/trident.png-76c0c1d87598fe190c0a17d7b6bc0e1b.ctex"]
+source_file="res://Textures/Items/Upgrades/Item_Sock.png"
+dest_files=["res://.godot/imported/Item_Sock.png-0c06111bf6bfb397ef0fc1c9ea2c80f2.ctex"]
 
 [params]
 

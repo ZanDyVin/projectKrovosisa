@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds4fq4dd6nxoq"
-path="res://.godot/imported/seeds.png-a667554a06639cf9f006a31bd98530d5.ctex"
+uid="uid://clsqae1lqxtgd"
+path="res://.godot/imported/Item_Borsh.png-9ac0059b57dfd744da9b4f7d2432d5f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/seeds.png"
-dest_files=["res://.godot/imported/seeds.png-a667554a06639cf9f006a31bd98530d5.ctex"]
+source_file="res://Textures/Items/Upgrades/Item_Borsh.png"
+dest_files=["res://.godot/imported/Item_Borsh.png-9ac0059b57dfd744da9b4f7d2432d5f1.ctex"]
 
 [params]
 

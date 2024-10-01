@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0svybugefprr"
-path="res://.godot/imported/borsch.png-e95eabf01b3c17cc6fa9366b44df005d.ctex"
+uid="uid://dbnathx5ot1ps"
+path="res://.godot/imported/Item_Salo.png-4b299164af337ec98179659d0455ccce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Upgrades/borsch.png"
-dest_files=["res://.godot/imported/borsch.png-e95eabf01b3c17cc6fa9366b44df005d.ctex"]
+source_file="res://Textures/Items/Upgrades/Item_Salo.png"
+dest_files=["res://.godot/imported/Item_Salo.png-4b299164af337ec98179659d0455ccce.ctex"]
 
 [params]
 

@@ -10,6 +10,7 @@ var time = 0
 var experience = 0
 var experience_level = 1
 var collected_experience = 0
+var music = true
 
 #Attacks
 var attacks_preload = {
@@ -47,7 +48,6 @@ var semki_level = 0
 var socks_level = 0
 var socks_attack = null
 
-
 #Enemy Related
 var enemy_close = [] 
 
@@ -66,6 +66,7 @@ var enemy_close = []
 @onready var collectedweapons = get_node("%CollectedWeapons")
 @onready var collectedUpgrades = get_node("%CollectedUpgrades")
 @onready var itemContainer = preload("res://Player/GUI/item_container.tscn")
+@onready var pause_screen = get_node("%PauseMenu")
 
 @onready var deathPanel = get_node("%DeathPanel")
 @onready var lblResult = get_node("%lbl_Result")
@@ -76,7 +77,7 @@ var enemy_close = []
 signal playerdeath
 
 func _ready():
-	upgrade_player("socks1")
+	upgrade_player("trident1")
 	attack()
 	set_expBar(experience, calculate_experiencecap())
 	_on_hurt_box_hurt(0,0,0)
@@ -392,3 +393,8 @@ func death():
 func _on_btn_menu_click_end():
 	get_tree().paused = false
 	var _level = get_tree().change_scene_to_file("res://TitleScreen/menu.tscn")
+
+
+func _on_pause_button_pressed():
+	get_tree().paused = true
+	pause_screen.visible = true

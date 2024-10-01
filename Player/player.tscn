@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cg43t642473it"]
+[gd_scene load_steps=21 format=3 uid="uid://cg43t642473it"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_wq3q8"]
 [ext_resource type="Texture2D" uid="uid://doia3cj0jhur7" path="res://Textures/Player/Player_sprite.png" id="2_vy4s8"]
@@ -11,6 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://cttlusbvvgik8" path="res://Audio/SoundEffect/Victory.wav" id="9_3hr0o"]
 [ext_resource type="AudioStream" uid="uid://c216ragyusb8f" path="res://Audio/SoundEffect/Lose.ogg" id="10_cjyre"]
 [ext_resource type="PackedScene" uid="uid://q3p1ejrk8pqq" path="res://Utility/basic_button.tscn" id="11_vfs2c"]
+[ext_resource type="PackedScene" uid="uid://d2b4vl5stqfob" path="res://TitleScreen/pause_menu.tscn" id="12_61og3"]
+[ext_resource type="Texture2D" uid="uid://b3ibukurug7y6" path="res://Textures/GUI/pause_button.png" id="13_wd62j"]
+[ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="14_f0k3y"]
+[ext_resource type="AudioStream" uid="uid://d3lcl4c3p5u5g" path="res://Audio/Music/battleThemeA.mp3" id="14_kdj5n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5fut"]
 radius = 7.0
@@ -236,6 +240,25 @@ offset_bottom = 236.0
 text = "Меню
 "
 
+[node name="PauseMenu" parent="GUILayer/GUI" instance=ExtResource("12_61og3")]
+unique_name_in_owner = true
+
+[node name="PauseButton" type="TextureButton" parent="GUILayer/GUI"]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 22.0
+offset_right = 689.0
+offset_bottom = 108.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("13_wd62j")
+
+[node name="snd_Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_kdj5n")
+volume_db = -30.0
+autoplay = true
+parameters/looping = true
+script = ExtResource("14_f0k3y")
+
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/TridentTimer" to="." method="_on_trident_timer_timeout"]
 [connection signal="timeout" from="Attack/TridentTimer/TridentAttackTimer" to="." method="_on_trident_attack_timer_timeout"]
@@ -246,5 +269,6 @@ text = "Меню
 [connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
 [connection signal="click_end" from="GUILayer/GUI/DeathPanel/btn_menu" to="." method="_on_btn_menu_click_end"]
+[connection signal="pressed" from="GUILayer/GUI/PauseButton" to="." method="_on_pause_button_pressed"]
 
 [editable path="HurtBox"]

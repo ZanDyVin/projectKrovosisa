@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bca4a76gda13t"]
+[gd_scene load_steps=4 format=3 uid="uid://bca4a76gda13t"]
 
 [ext_resource type="Script" path="res://TitleScreen/menu.gd" id="1_thlxe"]
 [ext_resource type="PackedScene" uid="uid://q3p1ejrk8pqq" path="res://Utility/basic_button.tscn" id="2_bqrgd"]
+[ext_resource type="FontFile" uid="uid://dc0uerulf1kle" path="res://Font/AuX_DotBitC_Xtra_SmallCaps.ttf" id="3_q1vge"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -31,6 +32,7 @@ offset_left = 280.0
 offset_top = 250.0
 offset_right = 371.0
 offset_bottom = 286.0
+theme_override_fonts/font = ExtResource("3_q1vge")
 text = "Грати"
 
 [node name="btn_exit" parent="." instance=ExtResource("2_bqrgd")]
@@ -39,6 +41,7 @@ offset_left = 280.0
 offset_top = 290.0
 offset_right = 371.0
 offset_bottom = 326.0
+theme_override_fonts/font = ExtResource("3_q1vge")
 text = "Вийти"
 
 [connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]

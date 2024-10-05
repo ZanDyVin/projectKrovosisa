@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpmsv0bln50aw"
-path="res://.godot/imported/drop of blood 2.png-c3e129d9beaef9be9e68782a7730ae21.ctex"
+uid="uid://54cfr30kyph5"
+path="res://.godot/imported/Drop_XP2.png-a37a03dec91e9fc642f99d90b3630120.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Gems/drop of blood 2.png"
-dest_files=["res://.godot/imported/drop of blood 2.png-c3e129d9beaef9be9e68782a7730ae21.ctex"]
+source_file="res://Textures/Items/Gems/Drop_XP2.png"
+dest_files=["res://.godot/imported/Drop_XP2.png-a37a03dec91e9fc642f99d90b3630120.ctex"]
 
 [params]
 

@@ -77,7 +77,7 @@ var enemy_close = []
 signal playerdeath
 
 func _ready():
-	upgrade_player("socks1")
+	upgrade_player("semki1")
 	attack()
 	set_expBar(experience, calculate_experiencecap())
 	_on_hurt_box_hurt(0,0,0)

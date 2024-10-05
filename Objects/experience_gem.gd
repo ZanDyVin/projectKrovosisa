@@ -2,9 +2,9 @@ extends Area2D
 
 @export var experience = 1
 
-var spr_blood1 = preload("res://Textures/Items/Gems/drop of blood 1.png")
-var spr_blood2 = preload("res://Textures/Items/Gems/drop of blood 2.png")
-var spr_blood3 = preload("res://Textures/Items/Gems/drop of blood 3.png")
+var spr_blood1 = preload("res://Textures/Items/Gems/Drop_XP1.png")
+var spr_blood2 = preload("res://Textures/Items/Gems/Drop_XP2.png")
+var spr_blood3 = preload("res://Textures/Items/Gems/Drop_XP3.png")
 
 var target = null
 var speed = -1

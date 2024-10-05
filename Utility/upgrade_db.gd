@@ -94,7 +94,7 @@ const UPGRADES = {
 	"socks2": {
 		"icon": ICON_PATH + "Item_Sock.png",
 		"displayname": "Смірдючі щкірпітки",
-		"details": "Збільшується радіус і атака +10",
+		"details": "Збільшується радіус і атака +5",
 		"level": "Рівень: 2",
 		"prerequisite": ["socks1"],
 		"type": "weapon"
@@ -102,7 +102,7 @@ const UPGRADES = {
 	"socks3": {
 		"icon": ICON_PATH + "Item_Sock.png",
 		"displayname": "Смірдючі щкірпітки",
-		"details": "Збільшується радіус і атака +20",
+		"details": "Збільшується радіус і атака +10",
 		"level": "Рівень: 3",
 		"prerequisite": ["socks2"],
 		"type": "weapon"
@@ -110,7 +110,7 @@ const UPGRADES = {
 	"socks4": {
 		"icon": ICON_PATH + "Item_Sock.png",
 		"displayname": "Смірдючі щкірпітки",
-		"details": "Збільшується радіус і атака +25",
+		"details": "Збільшується радіус і атака +15",
 		"level": "Рівень: 4",
 		"prerequisite": ["socks3"],
 		"type": "weapon"

@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 
 var movement_speed = 40.0
-var hp = 100
-var maxhp = 100
+var hp = 300
+var maxhp = 300
 var last_movement = Vector2.UP
 var time = 0
 
@@ -11,6 +11,7 @@ var experience = 0
 var experience_level = 1
 var collected_experience = 0
 var music = true
+signal remove_from_array(object)
 
 #Attacks
 var attacks_preload = {
@@ -96,6 +97,7 @@ func attack():
 			semkiTimer.start()
 	if socks_level > 0:
 		if socks_attack != null:
+			emit_signal("remove_from_array", self)
 			socks_attack.queue_free()
 		var socks_attack = attacks_preload ["socks"].instantiate()
 		socks_attack.level = socks_level
@@ -226,12 +228,12 @@ func calculate_experience(gem_exp):
 
 func calculate_experiencecap():
 	var exp_cap = experience_level
-	if experience_level < 20:
-		exp_cap = experience_level*10
-	elif experience_level < 40:
-		exp_cap + 95 * (experience_level-19)*8
+	if experience_level < 10:
+		exp_cap = experience_level*20
+	elif experience_level < 20:
+		exp_cap = 10+experience_level*40
 	else:
-		exp_cap = 255 + (experience_level-39)*12
+		exp_cap = 30+experience_level*60
 		
 	return exp_cap
 
@@ -303,6 +305,7 @@ func upgrade_player(upgrade):
 			spell_cooldown += 0.15
 		"sik1","sik2","sik3":
 			maxhp = maxhp + maxhp*0.25
+			healthBar.max_value = maxhp
 		"salo1":
 			Global.dmg_boost = 1.1
 		"salo2":
@@ -312,6 +315,7 @@ func upgrade_player(upgrade):
 		"borsch":
 			hp += 40
 			hp = clamp(hp, 0, maxhp)
+			healthBar.value = hp
 	adjust_gui_collection(upgrade)
 	attack()
 	var option_children = upgradeOptions.get_children()

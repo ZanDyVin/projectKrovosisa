@@ -58,10 +58,10 @@ collision_layer = 5
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_iy4mx")
-movement_speed = 35.0
-hp = 50
+movement_speed = 30.0
+hp = 80
 experience = 20
-enemy_damage = 80
+enemy_damage = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

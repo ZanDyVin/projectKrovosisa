@@ -60,6 +60,7 @@ motion_mode = 1
 script = ExtResource("1_sr0cq")
 movement_speed = 25.0
 hp = 40
+experience = 3
 enemy_damage = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

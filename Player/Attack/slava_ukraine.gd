@@ -47,7 +47,6 @@ func _ready():
 			damage = 37.5 * Global.dmg_boost
 			knockback_amount = 100
 			attack_size = 1.01
-	print(damage)
 
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1, 1)*attack_size, 1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)

@@ -1,7 +1,7 @@
 extends Area2D
 
 var level = 1
-var hp = 9999
+var hp = 1
 var speed = 100
 var damage = 5
 var attack_size = 1.0
@@ -20,31 +20,31 @@ signal remove_from_array(object)
 func _ready():
 	match level:
 		1:
-			hp = 9999
+			hp = 1
 			speed = 100.0
 			damage = 5 * Global.dmg_boost
 			knockback_amount = 100
 			attack_size = 1.0
 		2:
-			hp = 9999
+			hp = 1
 			speed = 100.0
 			damage = 5 * Global.dmg_boost
 			knockback_amount = 100
 			attack_size = 1.0
 		3:
-			hp = 9999
+			hp = 1
 			speed = 100.0
 			damage = 7.5 * Global.dmg_boost
 			knockback_amount = 100
 			attack_size = 1.0
 		4:
-			hp = 9999
+			hp = 1
 			speed = 100.0
 			damage = 15 * Global.dmg_boost
 			knockback_amount = 100
 			attack_size = 1.0
 		5:
-			hp = 9999
+			hp = 1
 			speed = 100.0
 			damage = 37.5 * Global.dmg_boost
 			knockback_amount = 100

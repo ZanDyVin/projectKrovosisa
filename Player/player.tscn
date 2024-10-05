@@ -64,19 +64,19 @@ shape = SubResource("RectangleShape2D_m4kgy")
 
 [node name="TridentTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 1.5
+wait_time = 3.0
 
 [node name="TridentAttackTimer" type="Timer" parent="Attack/TridentTimer"]
 unique_name_in_owner = true
-wait_time = 0.075
+wait_time = 0.2
 
 [node name="SemkiTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 1.5
 
 [node name="SemkiAttackTimer" type="Timer" parent="Attack/SemkiTimer"]
 unique_name_in_owner = true
-wait_time = 0.2
+wait_time = 0.075
 
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
 visible = false

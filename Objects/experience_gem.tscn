@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Objects/experience_gem.gd" id="1_lqhjk"]
 [ext_resource type="Texture2D" uid="uid://cn0212dfh4ci3" path="res://Textures/Items/Gems/Drop_XP1.png" id="2_ealui"]
-[ext_resource type="AudioStream" uid="uid://bl0f6ahh2awp8" path="res://Audio/SoundEffect/collectgem.mp3" id="3_iwcaj"]
+[ext_resource type="AudioStream" uid="uid://cf1s5vi7ma8x8" path="res://Audio/SoundEffect/collectgem.ogg" id="3_w70ty"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4s5a"]
 radius = 12.0
@@ -23,7 +23,8 @@ texture = ExtResource("2_ealui")
 shape = SubResource("CapsuleShape2D_s4s5a")
 
 [node name="snd_collected" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_iwcaj")
-volume_db = -40.0
+stream = ExtResource("3_w70ty")
+volume_db = -10.0
+pitch_scale = 1.5
 
 [connection signal="finished" from="snd_collected" to="." method="_on_snd_collected_finished"]

@@ -6,6 +6,7 @@ var hp = 300
 var maxhp = 300
 var last_movement = Vector2.UP
 var time = 0
+var dead = false
 
 var experience = 0
 var experience_level = 1
@@ -55,6 +56,9 @@ var enemy_close = []
 
 @onready var sprite = $Sprite2D
 @onready var walkTimer = get_node("%walkTimer")
+@onready var death_spr = $AnimationPlayer/death
+@onready var win_spr = $AnimationPlayer/win 
+@onready var animation_tree = $AnimationPlayer
 
 #GUI
 @onready var expBar = get_node("%ExperienceBar")
@@ -75,8 +79,6 @@ var enemy_close = []
 @onready var sndVictory = get_node("%snd_victory")
 @onready var sndLose = get_node("%snd_lose")
 
-#Signal
-signal playerdeath
 
 func _ready():
 	upgrade_player("semki1")
@@ -85,7 +87,8 @@ func _ready():
 	_on_hurt_box_hurt(0,0,0)
 
 func _physics_process(_delta):
-	movement()	
+	if dead == false:
+		movement()	
 
 func attack():
 	if trident_level > 0:
@@ -131,6 +134,7 @@ func _on_hurt_box_hurt(damage, _angle, _knockback):
 	healthBar.max_value = maxhp
 	healthBar.value = hp
 	if hp <= 0:
+		dead = true
 		death()
 
 
@@ -380,18 +384,36 @@ func adjust_gui_collection(upgrade):
 					collectedUpgrades.add_child(new_item)
 
 func death():
-	deathPanel.visible = true
-	emit_signal("playerdeath")
-	get_tree().paused = true
-	var tween = deathPanel.create_tween()
-	tween.tween_property(deathPanel, "position", Vector2(220, 50), 3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.play()
-	if time >= 1800:
-		lblResult.text = "Ти переміг!"
-		sndVictory.play()
+	sprite.visible = false
+	if time < 600:
+		death_spr.visible = true
+		death_spr.position = sprite.global_position
+		animation_tree.play("death_anim")
+		pass
 	else:
+		win_spr.visible = true
+		win_spr.position = sprite.global_position
+		animation_tree.play("win_anim")
+		pass
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "death_anim":
+		get_tree().paused = true
+		deathPanel.visible = true
 		lblResult.text = "Ти програв."
 		sndLose.play()
+		var tween = deathPanel.create_tween()
+		tween.tween_property(deathPanel, "position", Vector2(220, 50), 3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tween.play()
+
+	if anim_name == "win_anim":
+		get_tree().paused = true
+		deathPanel.visible = true
+		lblResult.text = "Ти переміг!"
+		sndVictory.play()
+		var tween = deathPanel.create_tween()
+		tween.tween_property(deathPanel, "position", Vector2(220, 50), 3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tween.play()
 
 func _on_btn_menu_click_end():
 	get_tree().paused = false

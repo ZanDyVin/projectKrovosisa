@@ -11,13 +11,40 @@
 [ext_resource type="AudioStream" uid="uid://cw7eosaqicg53" path="res://Audio/SoundEffect/levelup.ogg" id="6_7x8nl"]
 [ext_resource type="FontFile" uid="uid://dc0uerulf1kle" path="res://Font/AuX_DotBitC_Xtra_SmallCaps.ttf" id="6_asck0"]
 [ext_resource type="Texture2D" uid="uid://c72iphmxgkgq6" path="res://Textures/GUI/health.png" id="7_etjlj"]
-[ext_resource type="AudioStream" uid="uid://cttlusbvvgik8" path="res://Audio/SoundEffect/Victory.wav" id="9_3hr0o"]
-[ext_resource type="AudioStream" uid="uid://c216ragyusb8f" path="res://Audio/SoundEffect/Lose.ogg" id="10_cjyre"]
 [ext_resource type="PackedScene" uid="uid://q3p1ejrk8pqq" path="res://Utility/basic_button.tscn" id="11_vfs2c"]
 [ext_resource type="PackedScene" uid="uid://d2b4vl5stqfob" path="res://TitleScreen/pause_menu.tscn" id="12_61og3"]
+[ext_resource type="AudioStream" uid="uid://b10q14gp3e6s7" path="res://Audio/SoundEffect/Victory.mp3" id="12_o1228"]
+[ext_resource type="AudioStream" uid="uid://bd36gy5nc8jmc" path="res://Audio/SoundEffect/Lose.mp3" id="13_d05cb"]
 [ext_resource type="Texture2D" uid="uid://b3ibukurug7y6" path="res://Textures/GUI/pause_button.png" id="13_wd62j"]
 [ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="14_f0k3y"]
-[ext_resource type="AudioStream" uid="uid://d3lcl4c3p5u5g" path="res://Audio/Music/battleThemeA.mp3" id="14_kdj5n"]
+[ext_resource type="AudioStream" uid="uid://dft054x2rr3h8" path="res://Audio/Music/musica_main.mp3" id="17_1qtud"]
+
+[sub_resource type="Animation" id="Animation_8f5yo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/win:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/death:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_iip1m"]
 resource_name = "death_anim"
@@ -49,33 +76,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
-}
-
-[sub_resource type="Animation" id="Animation_8f5yo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/win:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/death:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eewyo"]
@@ -311,6 +311,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("6_asck0")
 text = "Level Up !"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -318,14 +319,13 @@ vertical_alignment = 1
 [node name="snd_victory" type="AudioStreamPlayer2D" parent="GUILayer/GUI/DeathPanel"]
 unique_name_in_owner = true
 position = Vector2(-800, -50)
-stream = ExtResource("9_3hr0o")
-volume_db = -20.0
+stream = ExtResource("12_o1228")
+volume_db = -30.0
 
 [node name="snd_lose" type="AudioStreamPlayer2D" parent="GUILayer/GUI/DeathPanel"]
 unique_name_in_owner = true
-position = Vector2(-800, -50)
-stream = ExtResource("10_cjyre")
-volume_db = -20.0
+stream = ExtResource("13_d05cb")
+volume_db = -10.0
 
 [node name="btn_menu" parent="GUILayer/GUI/DeathPanel" instance=ExtResource("11_vfs2c")]
 layout_mode = 0
@@ -333,6 +333,7 @@ offset_left = 60.0
 offset_top = 200.0
 offset_right = 151.0
 offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("6_asck0")
 text = "Меню
 "
 
@@ -350,12 +351,13 @@ texture_normal = ExtResource("13_wd62j")
 
 [node name="snd_Music" type="AudioStreamPlayer2D" parent="."]
 visible = false
-stream = ExtResource("14_kdj5n")
-volume_db = -50.0
+stream = ExtResource("17_1qtud")
+volume_db = -30.0
 autoplay = true
 parameters/looping = true
 script = ExtResource("14_f0k3y")
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/TridentTimer" to="." method="_on_trident_timer_timeout"]
 [connection signal="timeout" from="Attack/TridentTimer/TridentAttackTimer" to="." method="_on_trident_attack_timer_timeout"]

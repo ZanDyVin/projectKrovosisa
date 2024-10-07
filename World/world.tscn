@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ctsufhckf7loy"]
+[gd_scene load_steps=31 format=3 uid="uid://ctsufhckf7loy"]
 
 [ext_resource type="Texture2D" uid="uid://wnfa0gg54a28" path="res://Textures/Dirt.png" id="1_ojmqa"]
 [ext_resource type="PackedScene" uid="uid://cg43t642473it" path="res://Player/player.tscn" id="2_4hexe"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://beaklrt4m38io" path="res://Enemy/garlic.tscn" id="9_ofhyv"]
 [ext_resource type="PackedScene" uid="uid://dqway0iq3ukty" path="res://Enemy/pop_on_mercedes.tscn" id="10_y8ojb"]
 [ext_resource type="PackedScene" uid="uid://cvdkdpg1b2ngl" path="res://Enemy/tishchenko.tscn" id="11_y63jd"]
+[ext_resource type="PackedScene" uid="uid://db1x6u17dr5ak" path="res://Enemy/yulia_final.tscn" id="13_pkcvp"]
 
 [sub_resource type="Resource" id="Resource_7lt46"]
 script = ExtResource("4_2vnla")
@@ -134,6 +135,14 @@ enemy = ExtResource("10_y8ojb")
 enemy_num = 6
 enemy_spawn_delay = 10
 
+[sub_resource type="Resource" id="Resource_h84nr"]
+script = ExtResource("4_2vnla")
+time_start = 601
+time_end = 602
+enemy = ExtResource("13_pkcvp")
+enemy_num = 1
+enemy_spawn_delay = 10
+
 [node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -145,7 +154,7 @@ region_rect = Rect2(-4000, -4000, 4000, 4000)
 [node name="Player" parent="." instance=ExtResource("2_4hexe")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_we0tx")]
-spawns = Array[ExtResource("4_2vnla")]([SubResource("Resource_7lt46"), SubResource("Resource_4ejhq"), SubResource("Resource_rgkn3"), SubResource("Resource_16swc"), SubResource("Resource_ajmbd"), SubResource("Resource_u30uu"), SubResource("Resource_jekiq"), SubResource("Resource_u28tx"), SubResource("Resource_slbqk"), SubResource("Resource_kj15q"), SubResource("Resource_a5fk3"), SubResource("Resource_n7f3e"), SubResource("Resource_v3aoa"), SubResource("Resource_ubtn1"), SubResource("Resource_1jsmv")])
+spawns = Array[ExtResource("4_2vnla")]([SubResource("Resource_7lt46"), SubResource("Resource_4ejhq"), SubResource("Resource_rgkn3"), SubResource("Resource_16swc"), SubResource("Resource_ajmbd"), SubResource("Resource_u30uu"), SubResource("Resource_jekiq"), SubResource("Resource_u28tx"), SubResource("Resource_slbqk"), SubResource("Resource_kj15q"), SubResource("Resource_a5fk3"), SubResource("Resource_n7f3e"), SubResource("Resource_v3aoa"), SubResource("Resource_ubtn1"), SubResource("Resource_1jsmv"), SubResource("Resource_h84nr")])
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 

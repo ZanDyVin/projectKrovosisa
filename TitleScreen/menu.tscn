@@ -15,12 +15,13 @@ script = ExtResource("1_thlxe")
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 359.0
-color = Color(0.960745, 0.766206, 0.645865, 1)
+color = Color(0.495583, 0.155526, 0.137959, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 100.0
+theme_override_colors/font_color = Color(0.98457, 0.795496, 0, 1)
 theme_override_font_sizes/font_size = 72
 text = "Project Krovosisa"
 horizontal_alignment = 1

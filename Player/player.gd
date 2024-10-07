@@ -14,10 +14,9 @@ var music = true
 signal remove_from_array(object)
 
 #Attacks
-var attacks_preload = {
-"trident" = preload("res://Player/Attack/slava_ukraine.tscn"),
-"semki" = preload("res://Player/Attack/semki.tscn"),
-"socks" = preload("res://Player/Attack/socks.tscn")}
+var socks = preload("res://Player/Attack/socks.tscn")
+var trident = preload("res://Player/Attack/slava_ukraine.tscn")
+var semki = preload("res://Player/Attack/semki.tscn")
 
 #AttackNodes
 @onready var tridentTimer = get_node("%TridentTimer")
@@ -38,12 +37,14 @@ var trident_ammo = 0
 var trident_baseammo = 0
 var trident_attackspeed = 1.5
 var trident_level = 0
+var trident_attack = null
 
 #Semki
 var semki_ammo = 0
 var semki_baseammo = 0
 var semki_attackspeed = 1.5
 var semki_level = 0
+var semki_attack = null
 
 #Socks
 var socks_level = 0
@@ -97,9 +98,8 @@ func attack():
 			semkiTimer.start()
 	if socks_level > 0:
 		if socks_attack != null:
-			emit_signal("remove_from_array", self)
 			socks_attack.queue_free()
-		var socks_attack = attacks_preload ["socks"].instantiate()
+		socks_attack = socks.instantiate()
 		socks_attack.level = socks_level
 		add_child(socks_attack)
 
@@ -141,7 +141,7 @@ func _on_trident_timer_timeout():
 
 func _on_trident_attack_timer_timeout():
 	if trident_ammo > 0:
-		var trident_attack = attacks_preload ["trident"].instantiate()
+		trident_attack = trident.instantiate()
 		trident_attack.position = position 
 		trident_attack.target = get_random_target()
 		trident_attack.level = trident_level
@@ -159,7 +159,7 @@ func _on_semki_timer_timeout():
 
 func _on_semki_attack_timer_timeout():
 	if semki_ammo > 0:
-		var semki_attack = attacks_preload ["semki"].instantiate()
+		semki_attack = semki.instantiate()
 		semki_attack.position = position 
 		semki_attack.last_movement = last_movement
 		semki_attack.level = semki_level

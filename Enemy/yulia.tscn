@@ -56,7 +56,7 @@ height = 104.0
 radius = 30.0
 height = 104.0
 
-[node name="Enemy_tishchenko" type="CharacterBody2D"]
+[node name="Enemy_yulia" type="CharacterBody2D"]
 collision_layer = 5
 collision_mask = 5
 motion_mode = 1
@@ -65,6 +65,7 @@ movement_speed = 35.0
 hp = 600
 experience = 50
 enemy_damage = 50
+enemy_hit_cooldown = 0.7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

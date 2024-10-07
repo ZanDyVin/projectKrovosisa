@@ -59,6 +59,7 @@ collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_8f0nl")
 hp = 10
+enemy_hit_cooldown = 0.7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

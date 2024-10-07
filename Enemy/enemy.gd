@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var knockback_recovery = 3.5
 @export var experience = 1
 @export var enemy_damage = 5
+@export var enemy_hit_cooldown = 0.0
 var knockback = Vector2.ZERO
 
 @onready var player  = get_tree().get_first_node_in_group("player")
@@ -15,6 +16,7 @@ var knockback = Vector2.ZERO
 @onready var snd_hit = $snd_hit
 @onready var hitBox = $HitBox
 
+
 var death_anim = preload("res://Enemy/explosion.tscn")
 var exp_gem = preload("res://Objects/experience_gem.tscn")
 
@@ -23,6 +25,7 @@ signal remove_from_array(object)
 func _ready():
 	anim.play("walk")
 	hitBox.damage = enemy_damage
+	hitBox.cooldown_timer = enemy_hit_cooldown
 
 func _physics_process(_delta):
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)

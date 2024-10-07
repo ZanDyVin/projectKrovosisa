@@ -7,6 +7,7 @@ extends Area2D
 
 var level = 1
 var damage = 1
+var hurt_box_type = "cooldown"
 var cooldown_timer = 2
 var knockback_amount = 100
 

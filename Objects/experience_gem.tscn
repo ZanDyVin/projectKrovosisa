@@ -24,6 +24,6 @@ shape = SubResource("CapsuleShape2D_s4s5a")
 
 [node name="snd_collected" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_iwcaj")
-volume_db = -20.0
+volume_db = -40.0
 
 [connection signal="finished" from="snd_collected" to="." method="_on_snd_collected_finished"]

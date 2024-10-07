@@ -62,6 +62,7 @@ movement_speed = 30.0
 hp = 80
 experience = 20
 enemy_damage = 30
+enemy_hit_cooldown = 0.7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

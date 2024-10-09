@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bca4a76gda13t"]
+[gd_scene load_steps=9 format=3 uid="uid://bca4a76gda13t"]
 
 [ext_resource type="Script" path="res://TitleScreen/menu.gd" id="1_thlxe"]
 [ext_resource type="PackedScene" uid="uid://q3p1ejrk8pqq" path="res://Utility/basic_button.tscn" id="2_bqrgd"]
+[ext_resource type="Texture2D" uid="uid://drd2duhargvlr" path="res://Textures/GUI/Main_menu.png" id="2_xa0ey"]
 [ext_resource type="FontFile" uid="uid://dc0uerulf1kle" path="res://Font/AuX_DotBitC_Xtra_SmallCaps.ttf" id="3_q1vge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60k4g"]
+bg_color = Color(0.254902, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilx4u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05gbs"]
+bg_color = Color(0.227451, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty23n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,13 +24,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_thlxe")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("2_xa0ey")
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 359.0
 color = Color(0.495583, 0.155526, 0.137959, 1)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 100.0
@@ -29,20 +48,28 @@ vertical_alignment = 1
 
 [node name="btn_play" parent="." instance=ExtResource("2_bqrgd")]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 250.0
-offset_right = 371.0
-offset_bottom = 286.0
+offset_left = 300.0
+offset_top = 158.0
+offset_right = 442.0
+offset_bottom = 214.0
+theme_override_colors/font_color = Color(0.92549, 0.756863, 0.0862745, 1)
 theme_override_fonts/font = ExtResource("3_q1vge")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_60k4g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ilx4u")
 text = "Грати"
 
 [node name="btn_exit" parent="." instance=ExtResource("2_bqrgd")]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 290.0
-offset_right = 371.0
-offset_bottom = 326.0
+offset_left = 294.0
+offset_top = 254.0
+offset_right = 433.0
+offset_bottom = 309.0
+theme_override_colors/font_color = Color(0.92549, 0.756863, 0.0862745, 1)
 theme_override_fonts/font = ExtResource("3_q1vge")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_05gbs")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ty23n")
 text = "Вийти"
 
 [connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
